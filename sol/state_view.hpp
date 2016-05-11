@@ -50,8 +50,8 @@ private:
     table reg;
     global_table global;
 public:
-    typedef typename global_table::iterator iterator;
-    typedef typename global_table::const_iterator const_iterator;
+    //typedef typename global_table::iterator iterator;
+    //typedef typename global_table::const_iterator const_iterator;
 
     state_view(lua_State* L):
     L(L),
@@ -173,19 +173,19 @@ public:
         return load_result(L, -1, 1, 1, x);
     }
 
-    iterator begin () const {
+	decltype(auto) begin () const {
         return global.begin();
     }
 
-    iterator end() const {
+	decltype(auto) end() const {
         return global.end();
     }
 
-    const_iterator cbegin() const {
+	decltype(auto) cbegin() const {
         return global.cbegin();
     }
 
-    const_iterator cend() const {
+	decltype(auto) cend() const {
         return global.cend();
     }
 
